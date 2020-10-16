@@ -82,7 +82,7 @@ const SignUp = () => {
 
 				<p className='login-instead'>
 					Already Have an account?
-					<NavLink href='/login'>Login</NavLink>
+					<NavLink href=''>Login</NavLink>
 				</p>
 			</Form>
 		</div>
