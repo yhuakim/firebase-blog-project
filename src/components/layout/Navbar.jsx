@@ -1,6 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { NavLink } from 'reactstrap';
 import firebase from '../../services/firebase';
+import Login from '../Auth/Login';
+import logo from '../images/logo.png'
 
 const Navbar = ({initialized}) => {
     let history = useHistory()
@@ -13,38 +16,70 @@ const Navbar = ({initialized}) => {
 
     return (
         <>
-            <nav className="navbar position-fixed navigations">
-                <ul className="nav-list d-flex">
-                    <li className="nav-item">
-                        <a href="/" className="nav-link">
-                            Home
-                        </a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="/transfer" className="nav-link">
-                            Transfer
-                        </a>
-                    </li>
-                    {initialized === null ? 
-                    <> 
-                        <li className="nav-item">
-                            <a href="/signup" className="nav-link">
-                                Sign Up
-                            </a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="/login" className="nav-link">
-                                Login
-                            </a>
-                        </li>
-                    </> : ''}
-                </ul>
-                <div className="brand-name">
-                    <span className="text-white badge badge-primary ">
-                        &times;
-                    </span>
-                    <h3 className="name">WaveTransfer</h3>
-                </div>
+            <nav className="position-fixed navigations">
+                {initialized === null ? 
+                <>
+                    <div className="welcome">
+                        <h1 className="">Welcome</h1>
+                    </div>
+                    <div className="branding">
+                        <div className="logo-wrapper">
+                            <img src={logo} alt="brand logo"/>
+                        </div>
+
+                        <Login isInit ={initialized} />
+                    </div>
+                </>: 
+                <>
+                    <div className="branding">
+                        <div className="logo-wrapper">
+                            <img src={logo} alt="brand logo"/>
+                        </div>
+
+                        <div className="navigation">
+                            <ul className="nav-items">
+                                <li className="nav-item">
+                                    <NavLink href="/feeds" className="nav-link">
+                                        Feeds
+                                    </NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink href="/contact" className="nav-link">
+                                        Contact
+                                    </NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink href="/profile" className="nav-link">
+                                        Profile
+                                    </NavLink>
+                                </li>
+                            </ul>
+
+                            <div className="avatar-wrapper">
+                                <div className="avatar">
+                                    <a href="/dashboard" className="dashboard-link">
+                                        <i className="fas fa-user-circle"></i>
+                                    </a>
+                                </div>
+
+                                <div className="dropdown">
+                                    <button className="dropbtn">
+                                        <i className="fas fa-caret-down"></i>
+                                    </button>
+                                    <div className="dropdown-content">
+                                        <a href="/dashboard">Dashboard</a>
+                                        <hr/>
+                                        <a href="#" onClick={signOut}>
+                                            <i className="fas fa-power-off mr-2"></i>
+                                         <span className="signout">Signout</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </>}
+{/* 
                 <ul className="socials d-flex">
                     {initialized ? <ul><li className="nav-item">
                         <a href="#" onClick={signOut} className="nav-link">
@@ -68,7 +103,7 @@ const Navbar = ({initialized}) => {
                             <i className="fas fa-twitter">twitter</i>
                         </a>
                     </li>
-                </ul>
+                </ul> */}
             </nav>
         </>
     );

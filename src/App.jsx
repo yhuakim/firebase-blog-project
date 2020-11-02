@@ -7,8 +7,10 @@ import Login from './components/Auth/Login'
 import Navbar from './components/layout/Navbar'
 import firebase from './services/firebase'
 import PrivateRoute from './components/layout/PrivateRoute'
+import './assets/css/App.css'
 import Transfer from './components/pages/Transfer'
 import Posts from './components/Posts'
+import Feeds from './components/pages/Feeds'
 
 
 
@@ -44,8 +46,8 @@ const App = () => {
 				<Route path='/signup' component={SignUp} exact />
 				<Route path='/login' component={Login} exact />
 				<PrivateRoute
-					path='/transfer'
-					component={Transfer}
+					path='/feeds'
+					component={Feeds}
 					isInitialized={initialized}
 					isLoading={isLoading}
 					exact

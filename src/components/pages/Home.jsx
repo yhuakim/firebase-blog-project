@@ -4,17 +4,13 @@ import Feeds from './Feeds'
 import firebase from '../../services/firebase'
 
 const Home = ({isInitialized}) => {
-    console.log()
-    console.log(firebase.isInitialized())
     return (
         <>
-            <div className="banner">
-               <p className="text text-center">
-                   welcome to wave transfer
-               </p>
+            <div className="main">
+                <div className="signup-box">
+                    <SignUp isInitialized={isInitialized} />
+                </div>
             </div>
-            {firebase.isInitialized() && isInitialized  ? "" :<SignUp/> }
-            <Feeds/>
         </>
     );
 }

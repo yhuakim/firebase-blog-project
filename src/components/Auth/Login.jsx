@@ -4,11 +4,11 @@ import firebase from '../../services/firebase'
 //import { login } from '../../helpers/Auth'
 import { Redirect, useHistory, useLocation, Link } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({isInit}) => {
     let history = useHistory()
     let location = useLocation()
 
-    let { from } = location.state || { from: { pathname: '/' } }
+    let { from } = { from: { pathname: '/feeds' } }
 
     const [loginDetail, setLoginDetails] = useState({
         email: '',
@@ -25,15 +25,18 @@ const Login = () => {
             [e.target.name]: e.target.value
         })
     }
+    console.log(isInit)
 
     const submitForm = async(e) => {
         e.preventDefault()
         
         try {
             await firebase.login(email, password)
-            //return <Redirect to={{pathname: '/transfer'}} />
-            history.replace(from)
-            window.location.reload()
+            history.push('/feeds')
+            window.location.replace('/feeds')
+
+            return <Redirect to='/feeds' />
+            
             
         } catch (error) {
             setError({
@@ -54,6 +57,7 @@ const Login = () => {
                 value={email}
                 placeholder='Enter your Email'
                 onChange={handleChange}
+                className="input"
                 />
 
                 <Input 
@@ -62,14 +66,10 @@ const Login = () => {
                 value={password}
                 placeholder='Enter your password'
                 onChange={handleChange}
+                className="input"
                 />
 
                 <Button onClick={submitForm} >Login</Button>
-
-                <p className="register-instead">
-                    Don't Have an account? 
-                    <NavLink href='/signup' >Sign Up</NavLink>
-                </p>
             </Form>
         </>
     );

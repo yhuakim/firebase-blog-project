@@ -5,7 +5,7 @@ const PrivateRoute = ({ component: Component, isInitialized, isLoading, ...rest 
 	<Route
 		{...rest}
 		render={(props) =>( 
-				isInitialized === null ? <Redirect to={{ pathname: '/login', state: { from: props.location } }} /> :<Component {...props} />
+				isInitialized === null ? <Redirect to='/' /> :<Component {...props} />
 				)}
 	/>
 

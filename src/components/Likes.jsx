@@ -7,6 +7,7 @@ const Likes = ({id}) => {
     let [likeCount, setLikeCount] = useState(0)
 
     const changeLike = async() => {
+        
         setLike(!like)
 
         console.log(like)
@@ -46,9 +47,13 @@ const Likes = ({id}) => {
     }, [])
     
     return (
-        <>
-            <Button className={likeCount === 0 ? '' : 'text-danger'} onClick={changeLike}> &hearts; {likeCount}</Button>
-        </>
+        <div className='like-box' >
+            <span className="like-count">
+                {likeCount}
+            </span>
+            <i className={!like  ? 'text-danger fas fa-heart' : 'far fa-heart'} onClick={changeLike}></i> 
+            
+        </div>
     );
 }
 

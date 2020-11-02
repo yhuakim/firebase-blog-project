@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two&display=swap');
+
+@import 'Feeds';
+
+$primary-color : #385A64;
+$secondary-color : #F2F2F2;
+$secondary-color01 : #828282;
+$primary-font: "Roboto", cursive;
+$welcome-font: "Lobster Two", cursive;
+$welcome-color: #FF4F5A;
+
+.main {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../../components/images/blog-bg.jpg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  .signup-box {
+    position: relative;
+    top: 27%;
+    bottom: 50%;
+    background-color: $primary-color;
+    padding: 40px 10px;
+    width: 300px;
+    left: 7%;
+    border-radius: 8px;
+    font-weight: 100;
+
+  }
+
+  button {
+    background-color: $secondary-color;
+    color: $primary-color;
+    font-weight: 500;
+    position: relative;
+    left: 34%;
+    //border: 2px solid ;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    
+    &:hover {
+      background-color: $primary-color;
+      box-shadow: 1px 1px 8px rgba(256, 256, 256, 0.5);
+      border: none;
+    }
+  }
+
+  .social-icon {
+    display: flex;
+    list-style: none;
+  }
+  
+  .input {
+  margin-bottom: 10px;
+  font-family: $primary-font;
+ }
+
+}
+
+.navigations {
+  width: 100%;
+  z-index: 3;
+  background-color: #ffffff;
+
+  .welcome {
+    font-family: $welcome-font;
+    text-align: center;
+    color: $welcome-color;
+  }
+
+  .branding {
+    display: flex;
+    width: 100%;
+    height: 5vh;
+    justify-content: space-evenly;
+    //padding: 0 20px;
+
+    .logo-wrapper {
+      padding: 10px;
+      width: 150px;
+      height: 100px;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+
+    .form {
+      display: flex;
+
+      .input {
+        margin-right: 10px;
+        font-family: $primary-font;
+        color: $secondary-color01;
+      }
+    }
+
+    .navigation {
+      display: flex;
+      padding: 10px;
+
+      .nav-items {
+        list-style: none;
+        display: flex;
+
+        .nav-item {
+          .nav-link {
+            text-decoration-color: #385A64;
+            color: #385A64;
+
+              &:active {
+              color: #ee6868;
+            }
+          }
+        }
+
+      }
+
+      .avatar-wrapper {
+        display: flex;
+        align-items: center;
+        position: relative;
+        top: 75%;
+
+        .avatar {
+          .dashboard-link {
+            color: #385A64;
+          }
+        }
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+
+        &:hover .dropdown-content {
+          display: block;
+        }
+
+        .dropbtn {
+          background-color: transparent;
+          color: $primary-color;
+          padding: 8px;
+          font-size: 16px;
+          border: none;
+          cursor: pointer;
+        }
+
+        &-content {
+          display: none;
+          position: absolute;
+          background-color: #ee6868;
+          right: 0;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+
+          hr {
+            height: 4px;
+            padding: 0;
+            margin: 0;
+            color: #ffffff;
+            z-index: 3;
+          }
+
+          a {
+            color: rgb(255, 255, 255);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+
+            &:hover {background-color: #bbb3b3}
+          }
+        }
+
+        &:hover .dropbtn {
+          background-color: transparent;
+          color: red;
+        }
+      }
+    }
+  }
+}
+
+.posts-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  top: 10vh;
+
+  display: block;
+
+  .newpost {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  hr {
+    width: 100%;
+  }
+
+  .header {
+    display: flex;
+    margin-left: 10%;
+    font-family: $primary-font;
+
+    .circle-avatar {
+      display: flex;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3px solid blue;
+      justify-content: center;
+
+      .letter {
+        font-size: 24px;
+        font-weight: 400;
+        align-self: center;;
+      }
+
+    }
+    
+    .username {
+      position: relative;
+      top: 5px;
+      .name {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .post-content {
+    margin-left: 14%;
+  }
+
+  .footer {
+    display: flex;
+    margin: 0 14%;
+
+    .like {
+      margin-right: 65%;
+
+      .like-box {
+
+      }
+    }
+  }
+}

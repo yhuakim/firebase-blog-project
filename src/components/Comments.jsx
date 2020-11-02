@@ -72,8 +72,11 @@ const Comments = ({id}) => {
     }
 
     return (
-        <>
-            <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Toggle</Button>
+        <div className='comment-box' >
+            <div className="comment-count">
+                {commentCount}
+            </div>
+            <i color="primary" className=' comment-btn fas fa-comment' onClick={toggle} style={{ marginBottom: '1rem' }}></i>
             <Collapse isOpen={isOpen}>
             {commentFeed.map((c)=> {
                 let time = c.timestamp
@@ -88,14 +91,14 @@ const Comments = ({id}) => {
             })}
 
             <Form inline >
-                <Input type="textarea" placeholder="Write something (data should remain in modal if unmountOnClose is set to false)" rows={5} name='content' value={content} onChange={handleChange} />
+                <Input type="textarea" placeholder="add your comment" rows={5} name='content' value={content} onChange={handleChange} />
 
                 <Button color="primary" onClick={postComment}>post</Button>
 
             </Form>
                 
             </Collapse>
-        </>
+        </div>
     );
 }
 
