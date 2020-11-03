@@ -1,6 +1,6 @@
 import React from 'react';
 import SignUp from '../Auth/SignUp';
-import Feeds from './Feeds'
+import Feeds from '../Feed'
 import firebase from '../../services/firebase'
 
 const Home = ({isInitialized}) => {

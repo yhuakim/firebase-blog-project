@@ -73,11 +73,13 @@ const Comments = ({id}) => {
 
     return (
         <div className='comment-box' >
-            <div className="comment-count">
-                {commentCount}
+            <div className="comment">
+                <i color="primary" className=' comment-btn fas fa-comment' onClick={toggle} style={{ marginBottom: '1rem' }}></i>
+                <span className="comment-count">
+                    {commentCount}
+                </span>
             </div>
-            <i color="primary" className=' comment-btn fas fa-comment' onClick={toggle} style={{ marginBottom: '1rem' }}></i>
-            <Collapse isOpen={isOpen}>
+            <Collapse isOpen={isOpen} className='comment-input'>
             {commentFeed.map((c)=> {
                 let time = c.timestamp
                 console.log(time)
@@ -93,7 +95,7 @@ const Comments = ({id}) => {
             <Form inline >
                 <Input type="textarea" placeholder="add your comment" rows={5} name='content' value={content} onChange={handleChange} />
 
-                <Button color="primary" onClick={postComment}>post</Button>
+                <Button className='mt-2' color="primary" onClick={postComment}>post</Button>
 
             </Form>
                 

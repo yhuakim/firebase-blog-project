@@ -4,6 +4,7 @@ import { NavLink } from 'reactstrap';
 import firebase from '../../services/firebase';
 import Login from '../Auth/Login';
 import logo from '../images/logo.png'
+import Posts from '../Posts';
 
 const Navbar = ({initialized}) => {
     let history = useHistory()
@@ -53,6 +54,9 @@ const Navbar = ({initialized}) => {
                                         Profile
                                     </NavLink>
                                 </li>
+                                <li className="nav-item mr-2">
+                                    <Posts/>
+                                </li>
                             </ul>
 
                             <div className="avatar-wrapper">
@@ -66,7 +70,7 @@ const Navbar = ({initialized}) => {
                                     <button className="dropbtn">
                                         <i className="fas fa-caret-down"></i>
                                     </button>
-                                    <div className="dropdown-content">
+                                    <div className="dropdown-content bg-danger">
                                         <a href="/dashboard">Dashboard</a>
                                         <hr/>
                                         <a href="#" onClick={signOut}>

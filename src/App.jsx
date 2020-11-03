@@ -8,9 +8,9 @@ import Navbar from './components/layout/Navbar'
 import firebase from './services/firebase'
 import PrivateRoute from './components/layout/PrivateRoute'
 import './assets/css/App.css'
-import Transfer from './components/pages/Transfer'
+import Transfer from './components/pages/Feeds'
 import Posts from './components/Posts'
-import Feeds from './components/pages/Feeds'
+import Feeds from './components/Feed'
 
 
 

@@ -48,10 +48,10 @@ const Likes = ({id}) => {
     
     return (
         <div className='like-box' >
+            <i className={!like  ? 'text-danger fas fa-heart' : 'far fa-heart'} onClick={changeLike}></i> 
             <span className="like-count">
                 {likeCount}
             </span>
-            <i className={!like  ? 'text-danger fas fa-heart' : 'far fa-heart'} onClick={changeLike}></i> 
             
         </div>
     );
